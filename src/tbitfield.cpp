@@ -63,7 +63,7 @@ TELEM TBitField::GetMemMask(const int n) const // битовая маска дл
 
     int bitsInTelem = sizeof(TELEM) * 8;
     int bitPos = n % bitsInTelem;
-    return static_cast<TELEM>(1) << bitPos;
+    return (TELEM)(1) << bitPos;
 }
 
 // доступ к битам битового поля
@@ -196,7 +196,7 @@ TBitField TBitField::operator~(void) // отрицание
 
         if (lastElemBits != 0) {
             for (int i = lastElemBits; i < bitsInTelem; i++) {
-                temp.pMem[MemLen - 1] = temp.pMem[MemLen - 1] & (~(static_cast<TELEM>(1) << i));
+                temp.pMem[MemLen - 1] = temp.pMem[MemLen - 1] & (~((TELEM)(1) << i));
             }
         }
     }
